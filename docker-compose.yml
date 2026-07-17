@@ -1,0 +1,100 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: crime_postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: crime_db
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database:/docker-entrypoint-initdb.d
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d crime_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+
+    networks:
+      - crime_network
+
+  backend:
+    build:
+      context: ./backend
+
+    container_name: crime_backend
+    restart: unless-stopped
+
+    ports:
+      - "5000:5000"
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+
+    networks:
+      - crime_network
+
+  frontend:
+    build:
+      context: ./frontend
+
+    container_name: crime_frontend
+    restart: unless-stopped
+
+    ports:
+      - "5173:5173"
+
+    depends_on:
+      - backend
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+
+    networks:
+      - crime_network
+
+  ml:
+    build:
+      context: ./ml
+
+    container_name: crime_ml
+    restart: unless-stopped
+
+    ports:
+      - "8000:8000"
+
+    env_file:
+      - .env
+
+    volumes:
+      - ./ml:/app
+
+    networks:
+      - crime_network
+
+volumes:
+  postgres_data:
+
+networks:
+  crime_network:
+    driver: bridge
