@@ -1,26 +1,23 @@
 require("dotenv").config();
-
 const app = require("./app");
-const pool = require("./config/db");
+const db = require("./config/db");
+const logger = require("./utils/logger");
 
 const PORT = process.env.PORT || 5000;
 
 async function startServer() {
-  try {
-    // Test PostgreSQL connection
-    await pool.query("SELECT NOW();");
+    try {
+        // Test PostgreSQL connection
+        await db.query("SELECT NOW();");
+        logger.info("✅ PostgreSQL Connected Successfully");
 
-    console.log("✅ PostgreSQL Connected Successfully");
-
-    app.listen(PORT, () => {
-      console.log(`🚀 Backend Server Running on Port ${PORT}`);
-    });
-
-  } catch (error) {
-    console.error("❌ Failed to connect to PostgreSQL");
-    console.error(error.message);
-    process.exit(1);
-  }
+        app.listen(PORT, () => {
+            logger.info(`🚀 Backend Server Running on Port ${PORT}`);
+        });
+    } catch (error) {
+        logger.error("❌ Failed to connect to PostgreSQL", error);
+        process.exit(1);
+    }
 }
 
 startServer();
