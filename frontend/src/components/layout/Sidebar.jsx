@@ -7,6 +7,7 @@ import {
   UserX, 
   ShieldAlert, 
   MapPin, 
+  Map,
   BarChart2, 
   Settings,
   X
@@ -14,14 +15,15 @@ import {
 import { cn } from '../../utils/cn';
 
 const navItems = [
-  { name: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
-  { name: 'Cases', path: '/cases', icon: FileText },
-  { name: 'Victims', path: '/victims', icon: Users },
-  { name: 'Accused', path: '/accused', icon: UserX },
-  { name: 'Crime Categories', path: '/crime-categories', icon: ShieldAlert },
-  { name: 'Districts', path: '/districts', icon: MapPin },
-  { name: 'Analytics', path: '/analytics', icon: BarChart2 },
-  { name: 'Settings', path: '/settings', icon: Settings },
+  { name: 'Dashboard',       path: '/dashboard',       icon: LayoutDashboard },
+  { name: 'Crime Map',       path: '/crime-map',        icon: Map },
+  { name: 'Cases',           path: '/cases',            icon: FileText },
+  { name: 'Victims',         path: '/victims',          icon: Users },
+  { name: 'Accused',         path: '/accused',          icon: UserX },
+  { name: 'Crime Categories',path: '/crime-categories', icon: ShieldAlert },
+  { name: 'Districts',       path: '/districts',        icon: MapPin },
+  { name: 'Analytics',       path: '/analytics',        icon: BarChart2 },
+  { name: 'Settings',        path: '/settings',         icon: Settings },
 ];
 
 const Sidebar = ({ isOpen, setIsOpen }) => {

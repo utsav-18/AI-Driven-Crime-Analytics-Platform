@@ -1,5 +1,6 @@
 import React from 'react';
 export { Dashboard } from './Dashboard';
+export { CrimeMap } from './CrimeMap';
 
 const Placeholder = ({ title }) => (
   <div className="flex items-center justify-center h-full min-h-[500px]">

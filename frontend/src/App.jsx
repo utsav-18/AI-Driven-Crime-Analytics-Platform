@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import AppLayout from './layouts/AppLayout';
 import {
   Dashboard,
+  CrimeMap,
   Cases,
   Victims,
   Accused,
@@ -18,7 +19,8 @@ function App() {
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Navigate to="/dashboard" replace />} />
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="dashboard"         element={<Dashboard />} />
+          <Route path="crime-map"          element={<CrimeMap />} />
           <Route path="cases" element={<Cases />} />
           <Route path="victims" element={<Victims />} />
           <Route path="accused" element={<Accused />} />
