@@ -8,6 +8,7 @@ import {
   ShieldAlert, 
   MapPin, 
   Map,
+  Share2,
   BarChart2, 
   Settings,
   X
@@ -17,6 +18,7 @@ import { cn } from '../../utils/cn';
 const navItems = [
   { name: 'Dashboard',       path: '/dashboard',       icon: LayoutDashboard },
   { name: 'Crime Map',       path: '/crime-map',        icon: Map },
+  { name: 'Network',         path: '/network-analysis', icon: Share2 },
   { name: 'Cases',           path: '/cases',            icon: FileText },
   { name: 'Victims',         path: '/victims',          icon: Users },
   { name: 'Accused',         path: '/accused',          icon: UserX },

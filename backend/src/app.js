@@ -31,6 +31,7 @@ const courtsRoutes = require('./routes/courts.routes');
 const employeesRoutes = require('./routes/employees.routes');
 const dashboardRoutes = require('./routes/dashboard.routes');
 const mapRoutes = require('./routes/map.routes');
+const networkRoutes = require('./routes/network.routes');
 
 // Mount Routes
 app.use('/api/v1/cases', casesRoutes);
@@ -45,6 +46,7 @@ app.use('/api/v1/courts', courtsRoutes);
 app.use('/api/v1/employees', employeesRoutes);
 app.use('/api/v1/dashboard', dashboardRoutes);
 app.use('/api/v1/map', mapRoutes);
+app.use('/api/v1/network', networkRoutes);
 
 // 404 handler for undefined API routes
 app.use((req, res, next) => {

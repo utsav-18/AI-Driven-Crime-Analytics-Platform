@@ -4,6 +4,7 @@ import AppLayout from './layouts/AppLayout';
 import {
   Dashboard,
   CrimeMap,
+  NetworkAnalysis,
   Cases,
   Victims,
   Accused,
@@ -21,6 +22,7 @@ function App() {
           <Route index element={<Navigate to="/dashboard" replace />} />
           <Route path="dashboard"         element={<Dashboard />} />
           <Route path="crime-map"          element={<CrimeMap />} />
+          <Route path="network-analysis"   element={<NetworkAnalysis />} />
           <Route path="cases" element={<Cases />} />
           <Route path="victims" element={<Victims />} />
           <Route path="accused" element={<Accused />} />
