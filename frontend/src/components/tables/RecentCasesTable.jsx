@@ -31,37 +31,39 @@ export const RecentCasesTable = ({ cases }) => {
   }
 
   return (
-    <Card className="p-0 overflow-x-auto">
+    <Card className="p-0 overflow-hidden flex flex-col h-full">
       <div className="p-5 border-b border-slate-200">
         <h3 className="text-lg font-semibold text-navy-900">Recent FIRs</h3>
       </div>
-      <table className="w-full text-sm text-left text-slate-500">
-        <thead className="text-xs text-slate-400 uppercase bg-slate-50 border-b border-slate-200">
-          <tr>
-            <th className="px-6 py-4 font-medium">FIR Number</th>
-            <th className="px-6 py-4 font-medium">Date</th>
-            <th className="px-6 py-4 font-medium">Status</th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-slate-100">
-          {cases.map((c) => (
-            <tr key={c.id} className="hover:bg-slate-50 transition-colors">
-              <td className="px-6 py-4 font-medium text-navy-900">{c.fir_number}</td>
-              <td className="px-6 py-4">
-                {new Date(c.occurrence_date).toLocaleDateString()}
-              </td>
-              <td className="px-6 py-4">
-                <span className={cn(
-                  "px-2.5 py-1 rounded-full text-xs font-medium",
-                  getStatusColor(c.status)
-                )}>
-                  {c.status}
-                </span>
-              </td>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm text-left text-slate-500">
+          <thead className="text-xs text-slate-400 uppercase bg-slate-50 border-b border-slate-200">
+            <tr>
+              <th className="px-6 py-4 font-medium">FIR Number</th>
+              <th className="px-6 py-4 font-medium">Date</th>
+              <th className="px-6 py-4 font-medium">Status</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody className="divide-y divide-slate-100">
+            {cases.map((c) => (
+              <tr key={c.id} className="hover:bg-slate-50 transition-colors">
+                <td className="px-6 py-4 font-medium text-navy-900">{c.fir_number}</td>
+                <td className="px-6 py-4">
+                  {new Date(c.occurrence_date).toLocaleDateString()}
+                </td>
+                <td className="px-6 py-4">
+                  <span className={cn(
+                    "px-2.5 py-1 rounded-full text-xs font-medium",
+                    getStatusColor(c.status)
+                  )}>
+                    {c.status}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </Card>
   );
 };

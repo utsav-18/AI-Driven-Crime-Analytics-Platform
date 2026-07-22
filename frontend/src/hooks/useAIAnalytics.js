@@ -44,8 +44,7 @@ export const useAIAnalytics = () => {
                     insights
                 });
                 setError(null);
-            } catch (err) {
-                console.error("Failed to fetch AI Analytics data:", err);
+            } catch {
                 setError("Failed to load analytics data. Please try again later.");
             } finally {
                 setLoading(false);

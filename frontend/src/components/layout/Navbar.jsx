@@ -7,7 +7,8 @@ const Navbar = ({ toggleSidebar }) => {
       <div className="flex items-center gap-4">
         <button 
           onClick={toggleSidebar}
-          className="lg:hidden p-2 -ml-2 text-slate-500 hover:bg-slate-100 rounded-lg"
+          aria-label="Open navigation menu"
+          className="lg:hidden p-2 -ml-2 text-slate-500 hover:bg-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 transition-colors"
         >
           <Menu className="w-6 h-6" />
         </button>
@@ -15,12 +16,15 @@ const Navbar = ({ toggleSidebar }) => {
       </div>
 
       <div className="flex items-center gap-4">
-        <button className="relative p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors">
+        <button 
+          aria-label="Notifications"
+          className="relative p-2 text-slate-500 hover:bg-slate-100 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1"
+        >
           <Bell className="w-5 h-5" />
-          <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full"></span>
+          <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-red-500 rounded-full" aria-hidden="true"></span>
         </button>
         <div className="flex items-center gap-2 pl-4 border-l border-slate-200">
-          <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-dark flex items-center justify-center font-bold">
+          <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-dark flex items-center justify-center font-bold" aria-hidden="true">
             <User className="w-4 h-4" />
           </div>
           <div className="hidden md:block text-sm">

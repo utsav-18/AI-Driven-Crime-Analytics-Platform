@@ -262,32 +262,34 @@ export const CrimeMap = () => {
 
       {/* ── District table ─────────────────────────────── */}
       {filteredDistricts.length > 0 && (
-        <Card className="p-0 overflow-x-auto">
+        <Card className="p-0 overflow-hidden flex flex-col">
           <div className="px-5 py-4 border-b border-slate-200">
             <h3 className="text-base font-semibold text-navy-900">District Summary</h3>
           </div>
-          <table className="w-full text-sm text-left text-slate-600">
-            <thead className="text-xs text-slate-400 uppercase bg-slate-50 border-b border-slate-200">
-              <tr>
-                <th className="px-6 py-3">District</th>
-                <th className="px-6 py-3">Total Crimes</th>
-                <th className="px-6 py-3">Active</th>
-                <th className="px-6 py-3">Closed</th>
-                <th className="px-6 py-3">Top Category</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-slate-100">
-              {filteredDistricts.map(d => (
-                <tr key={`row-${d.districtId}`} className="hover:bg-slate-50 transition-colors">
-                  <td className="px-6 py-3 font-medium text-navy-900">{d.districtName}</td>
-                  <td className="px-6 py-3 font-bold">{d.totalCrimes}</td>
-                  <td className="px-6 py-3 text-amber-600">{d.activeCases}</td>
-                  <td className="px-6 py-3 text-emerald-600">{d.closedCases}</td>
-                  <td className="px-6 py-3 text-blue-dark">{d.topCrimeCategory}</td>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm text-left text-slate-600">
+              <thead className="text-xs text-slate-400 uppercase bg-slate-50 border-b border-slate-200">
+                <tr>
+                  <th className="px-6 py-3">District</th>
+                  <th className="px-6 py-3">Total Crimes</th>
+                  <th className="px-6 py-3">Active</th>
+                  <th className="px-6 py-3">Closed</th>
+                  <th className="px-6 py-3">Top Category</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody className="divide-y divide-slate-100">
+                {filteredDistricts.map(d => (
+                  <tr key={`row-${d.districtId}`} className="hover:bg-slate-50 transition-colors">
+                    <td className="px-6 py-3 font-medium text-navy-900">{d.districtName}</td>
+                    <td className="px-6 py-3 font-bold">{d.totalCrimes}</td>
+                    <td className="px-6 py-3 text-amber-600">{d.activeCases}</td>
+                    <td className="px-6 py-3 text-emerald-600">{d.closedCases}</td>
+                    <td className="px-6 py-3 text-blue-dark">{d.topCrimeCategory}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </Card>
       )}
     </div>

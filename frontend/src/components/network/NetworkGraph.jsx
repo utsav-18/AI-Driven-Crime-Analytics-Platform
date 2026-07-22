@@ -75,7 +75,7 @@ const STYLESHEET = [
         selector: 'node[type="Crime Category"]',
         style: {
             'background-color': '#a855f7',
-            'shape': 'diamond',
+            'shape': 'ellipse',
             'width': 35,
             'height': 35
         }
@@ -108,9 +108,10 @@ const STYLESHEET = [
         style: {
             'border-width': 4,
             'border-color': '#fbbf24',
-            'shadow-blur': 15,
-            'shadow-color': '#fbbf24',
-            'shadow-opacity': 0.8
+            'underlay-color': '#fbbf24',
+            'underlay-padding': 8,
+            'underlay-opacity': 0.8,
+            'underlay-shape': 'ellipse'
         }
     },
     {
