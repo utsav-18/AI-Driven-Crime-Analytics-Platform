@@ -9,6 +9,7 @@ import {
   MapPin, 
   Map,
   Share2,
+  BrainCircuit,
   BarChart2, 
   Settings,
   X
@@ -17,6 +18,7 @@ import { cn } from '../../utils/cn';
 
 const navItems = [
   { name: 'Dashboard',       path: '/dashboard',       icon: LayoutDashboard },
+  { name: 'AI Insights',     path: '/ai-analytics',     icon: BrainCircuit },
   { name: 'Crime Map',       path: '/crime-map',        icon: Map },
   { name: 'Network',         path: '/network-analysis', icon: Share2 },
   { name: 'Cases',           path: '/cases',            icon: FileText },

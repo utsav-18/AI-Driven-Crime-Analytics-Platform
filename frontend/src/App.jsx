@@ -5,6 +5,7 @@ import {
   Dashboard,
   CrimeMap,
   NetworkAnalysis,
+  AIAnalytics,
   Cases,
   Victims,
   Accused,
@@ -23,6 +24,7 @@ function App() {
           <Route path="dashboard"         element={<Dashboard />} />
           <Route path="crime-map"          element={<CrimeMap />} />
           <Route path="network-analysis"   element={<NetworkAnalysis />} />
+          <Route path="ai-analytics"       element={<AIAnalytics />} />
           <Route path="cases" element={<Cases />} />
           <Route path="victims" element={<Victims />} />
           <Route path="accused" element={<Accused />} />
