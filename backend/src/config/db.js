@@ -5,8 +5,11 @@ const pool = new Pool({
     user: process.env.POSTGRES_USER || "postgres",
     password: process.env.POSTGRES_PASSWORD || "postgres",
     host: process.env.POSTGRES_HOST || "postgres",
-    port: process.env.POSTGRES_PORT || 5432,
+    port: Number(process.env.POSTGRES_PORT) || 5432,
     database: process.env.POSTGRES_DB || "crime_db",
+    ssl: process.env.POSTGRES_HOST
+        ? { rejectUnauthorized: false }
+        : false,
 });
 
 pool.on("error", (err) => {
@@ -17,5 +20,5 @@ pool.on("error", (err) => {
 module.exports = {
     query: (text, params) => pool.query(text, params),
     getClient: () => pool.connect(),
-    pool
+    pool,
 };
