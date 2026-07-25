@@ -24,9 +24,9 @@ export const InsightsPanel = ({ insights }) => {
             </div>
             
             <div className="p-4 flex-1">
-                <div className="space-y-4">
+                <div className="space-y-2.5">
                     {insights.map((insight, idx) => (
-                        <div key={idx} className="flex items-start bg-white/5 rounded-xl p-3 backdrop-blur-sm border border-white/5 hover:bg-white/10 transition-colors">
+                        <div key={idx} className="flex items-start bg-white/5 rounded-xl px-3 py-2.5 backdrop-blur-sm border border-white/5 hover:bg-white/10 transition-colors">
                             <div className="w-6 h-6 rounded-full bg-indigo-500/20 text-indigo-300 flex items-center justify-center text-xs font-bold shrink-0 mr-3 mt-0.5">
                                 {idx + 1}
                             </div>

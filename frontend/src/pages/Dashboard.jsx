@@ -62,19 +62,26 @@ export const Dashboard = () => {
           <h1 className="text-2xl font-bold text-navy-900">Dashboard Overview</h1>
           <p className="text-slate-500 text-sm mt-1">Key metrics and analytical insights for Karnataka Police.</p>
         </div>
-        <div className="flex items-center gap-3">
-          <FilterDropdown 
-            label="District" 
-            value={districtFilter} 
-            onChange={setDistrictFilter} 
-            options={crimesByDistrictData.map(d => ({ label: d.name, value: d.name }))} 
-          />
-          <FilterDropdown 
-            label="Year" 
-            value={yearFilter} 
-            onChange={setYearFilter} 
-            options={yearlyTrendData.map(y => ({ label: y.name, value: y.name }))} 
-          />
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
+          <span className="text-xs italic text-amber-600 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md">
+            Filtering will be available with larger production datasets.
+          </span>
+          <div className="flex items-center gap-3">
+            <FilterDropdown 
+              label="District" 
+              value={districtFilter} 
+              onChange={setDistrictFilter} 
+              options={crimesByDistrictData.map(d => ({ label: d.name, value: d.name }))}
+              disabled={true}
+            />
+            <FilterDropdown 
+              label="Year" 
+              value={yearFilter} 
+              onChange={setYearFilter} 
+              options={yearlyTrendData.map(y => ({ label: y.name, value: y.name }))}
+              disabled={true}
+            />
+          </div>
         </div>
       </div>
 

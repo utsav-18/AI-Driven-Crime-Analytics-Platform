@@ -28,9 +28,9 @@ export const CrimeCategoryAnalysis = ({ categories }) => {
 
     return (
         <Card className="p-4 flex flex-col h-full">
-            <h3 className="font-bold text-navy-900 mb-4">Crime Category Breakdown</h3>
+            <h3 className="font-bold text-navy-900 mb-2">Crime Category Breakdown</h3>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 flex-1">
                 {/* Pie Chart */}
                 <div className="h-64 relative flex items-center justify-center">
                     <ResponsiveContainer width="100%" height="100%">
@@ -39,8 +39,8 @@ export const CrimeCategoryAnalysis = ({ categories }) => {
                                 data={topCategories}
                                 cx="50%"
                                 cy="50%"
-                                innerRadius={60}
-                                outerRadius={80}
+                                innerRadius={65}
+                                outerRadius={90}
                                 paddingAngle={5}
                                 dataKey="count"
                                 nameKey="category"

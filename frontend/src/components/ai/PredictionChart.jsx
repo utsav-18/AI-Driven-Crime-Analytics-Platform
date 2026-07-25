@@ -31,8 +31,8 @@ export const PredictionChart = ({ data }) => {
         <Card className="p-4 flex flex-col h-full">
             <h3 className="font-bold text-navy-900 mb-1">Crime Trend Prediction</h3>
             <p className="text-xs text-slate-500 mb-4 flex items-center">
-                <Info className="w-3 h-3 mr-1" />
-                Forecast generated using a 3-period moving average of historical data.
+                <Info className="w-3 h-3 mr-1 shrink-0" />
+                <span>Forecast generated using a 3-period moving average from the prototype dataset.</span>
             </p>
             
             <div className="flex-1 w-full min-h-[250px]">

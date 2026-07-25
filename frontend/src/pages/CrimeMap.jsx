@@ -91,7 +91,7 @@ export const CrimeMap = () => {
   const [categoryFilter, setCategoryFilter]   = useState('');
   const [statusFilter, setStatusFilter]       = useState('');
   const [yearFilter, setYearFilter]           = useState('');
-  const [showFilters, setShowFilters]         = useState(false);
+  const [showFilters, _setShowFilters]         = useState(false);
 
   // Load district map data + categories on mount
   const fetchData = async () => {
@@ -148,13 +148,18 @@ export const CrimeMap = () => {
           <h1 className="text-2xl font-bold text-navy-900">Crime Map</h1>
           <p className="text-sm text-slate-500 mt-0.5">Interactive district-level crime visualisation — Karnataka</p>
         </div>
-        <button
-          onClick={() => setShowFilters(v => !v)}
-          className="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 bg-white text-navy-900 text-sm font-medium hover:bg-slate-50 transition-colors shadow-sm"
-        >
-          <Filter className="w-4 h-4" />
-          Filters {showFilters ? '▲' : '▼'}
-        </button>
+        <div className="flex items-center gap-3">
+          <span className="text-xs italic text-amber-600 bg-amber-50 border border-amber-200 px-2.5 py-1 rounded-md">
+            Advanced filtering available in production.
+          </span>
+          <button
+            disabled={true}
+            className="flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-200 bg-slate-100 text-slate-400 text-sm font-medium cursor-not-allowed shadow-none"
+          >
+            <Filter className="w-4 h-4" />
+            Filters ▼
+          </button>
+        </div>
       </div>
 
       {/* ── Filter bar ─────────────────────────────────── */}
@@ -177,12 +182,14 @@ export const CrimeMap = () => {
             value={statusFilter}
             onChange={setStatusFilter}
             options={STATUS_OPTIONS}
+            disabled={true}
           />
           <FilterDropdown
             label="Year"
             value={yearFilter}
             onChange={setYearFilter}
             options={YEAR_OPTIONS}
+            disabled={true}
           />
           {(districtFilter || categoryFilter || statusFilter || yearFilter) && (
             <button

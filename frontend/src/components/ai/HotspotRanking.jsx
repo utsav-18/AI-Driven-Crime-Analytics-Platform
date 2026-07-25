@@ -37,24 +37,24 @@ export const HotspotRanking = ({ riskData }) => {
                 </p>
             </div>
             
-            <div className="overflow-x-auto flex-1">
+            <div className="overflow-auto flex-1">
                 <table className="w-full text-left text-sm">
                     <thead className="bg-slate-50 text-slate-500 text-xs uppercase font-semibold">
                         <tr>
-                            <th className="px-4 py-3">Rank</th>
-                            <th className="px-4 py-3">District</th>
-                            <th className="px-4 py-3 text-right">Crimes</th>
-                            <th className="px-4 py-3">Risk Score</th>
-                            <th className="px-4 py-3">Level</th>
+                            <th className="px-3.5 py-2.5">Rank</th>
+                            <th className="px-3.5 py-2.5">District</th>
+                            <th className="px-3.5 py-2.5 text-right">Crimes</th>
+                            <th className="px-3.5 py-2.5">Risk Score</th>
+                            <th className="px-3.5 py-2.5">Level</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100">
                         {riskData.map((row, idx) => (
                             <tr key={row.districtName} className="hover:bg-slate-50/50 transition-colors">
-                                <td className="px-4 py-3 font-semibold text-slate-400">#{idx + 1}</td>
-                                <td className="px-4 py-3 font-medium text-navy-900">{row.districtName}</td>
-                                <td className="px-4 py-3 text-right text-slate-600">{row.totalCrimes}</td>
-                                <td className="px-4 py-3 w-48">
+                                <td className="px-3.5 py-2.5 font-semibold text-slate-400">#{idx + 1}</td>
+                                <td className="px-3.5 py-2.5 font-medium text-navy-900">{row.districtName}</td>
+                                <td className="px-3.5 py-2.5 text-right text-slate-600">{row.totalCrimes}</td>
+                                <td className="px-3.5 py-2.5 w-36">
                                     <div className="flex items-center">
                                         <span className="w-8 text-right mr-2 font-bold text-navy-900">{row.riskScore}</span>
                                         <div className="flex-1 h-2 bg-slate-100 rounded-full overflow-hidden">
@@ -65,7 +65,7 @@ export const HotspotRanking = ({ riskData }) => {
                                         </div>
                                     </div>
                                 </td>
-                                <td className="px-4 py-3">
+                                <td className="px-3.5 py-2.5 whitespace-nowrap">
                                     {getRiskBadge(row.riskLevel)}
                                 </td>
                             </tr>
